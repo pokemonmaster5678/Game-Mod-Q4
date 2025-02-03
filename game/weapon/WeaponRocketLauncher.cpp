@@ -141,10 +141,10 @@ void rvWeaponRocketLauncher::Think ( void ) {
 	trace_t	tr;
 	int		i;
 
-	rocketThread.Execute ( );
+	rocketThread.Execute()
 
-	// Let the real weapon think first
-	rvWeapon::Think ( );
+		// Let the real weapon think first;;
+		;rvWeapon::Think();
 
 	// IF no guide range is set then we dont have the mod yet	
 	if ( !guideRange ) {
@@ -446,7 +446,7 @@ stateResult_t rvWeaponRocketLauncher::State_Fire ( const stateParms_t& parms ) {
 	switch ( parms.stage ) {
 		case STAGE_INIT:
 			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));		
-			Attack ( false, 5, 20, 0, 2.5f );
+			Attack ( false, 8, 10, 0, 1.5f );
 			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );	
 			return SRESULT_STAGE ( STAGE_WAIT );
 	
